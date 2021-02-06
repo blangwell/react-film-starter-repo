@@ -5,11 +5,19 @@ import FilmDetails from './FilmDetails';
 import TMDB from './TMDB';
 
 class App extends Component {
+  state = {
+    films: TMDB.films,
+    current: {}
+  }
+  handleDetailsClick = (film) => {
+    console.log(`🦮 fetching details for ${film.title}`);
+    this.setState({current: film})
+  }
   render() {
     return (
       <div className="film-library">
-        <FilmListing films={TMDB.films}/>
-        <FilmDetails films={TMDB.films}/>
+        <FilmListing handleDetailsClick={this.handleDetailsClick} films={this.state.films}/>
+        <FilmDetails film={this.state.current}/>
       </div>
     );
   }
