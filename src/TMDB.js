@@ -1,5 +1,8 @@
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+
 const TMDB = {
-  api_key: '<REPLACE_THIS_WITH_TMDB_API_KEY>',
+  api_key: API_KEY,
   films: [
     {
       "id": 346364,
